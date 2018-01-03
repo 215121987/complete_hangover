@@ -1,0 +1,62 @@
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='theme_ie-css'  href='http://livedemo00.template-help.com/woocommerce_53953/wp-content/themes/theme53953/css/ie.css?ver=4.2.7' type='text/css' media='all' />
+<![endif]-->
+
+
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=4.2.7'></script>
+
+
+
+
+
+view-source:http://static.livedemo00.template-help.com/woocommerce_53953/wp-content/themes/CherryFramework/js/jflickrfeed.js?ver=1.0
+
+
+
+
+
+<style>
+                .wishlist_table .add_to_cart, .yith-wcwl-add-button > a.button.alt { border-radius: 16px; -moz-border-radius: 16px; -webkit-border-radius: 16px; }            </style>
+            <script type="text/javascript">
+                var yith_wcwl_plugin_ajax_web_url = 'http://livedemo00.template-help.com/woocommerce_53953/wp-admin/admin-ajax.php';
+                var login_redirect_url = 'http://livedemo00.template-help.com/woocommerce_53953/wp-login.php?redirect_to=%2Fwoocommerce_53953%2Fpage%2F2%2F%3Fs';
+            </script>
+
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+ <script>
+  var system_folder = 'http://livedemo00.template-help.com/woocommerce_53953/wp-content/themes/CherryFramework/admin/data_management/',
+ 	 CHILD_URL ='http://livedemo00.template-help.com/woocommerce_53953/wp-content/themes/theme53953',
+ 	 PARENT_URL = 'http://livedemo00.template-help.com/woocommerce_53953/wp-content/themes/CherryFramework',
+ 	 CURRENT_THEME = 'theme53953'</script><meta name="format-detection" content="telephone=no" />
+ <style type='text/css'>
+ body { background-color:#ffffff }
+ .header { background-color:#0c0c0c }
+
+ </style>
+
+<style type='text/css'>
+h1 { font: normal 48px/48px Roboto;  color:#0c0c0c; }
+h2 { font: normal 48px/48px Roboto;  color:#0c0c0c; }
+h3 { font: bold 14px/25px Roboto;  color:#009587; }
+h4 { font: bold 14px/25px Roboto;  color:#009587; }
+h5 { font: bold 14px/25px Roboto;  color:#009587; }
+h6 { font: bold 14px/25px Roboto;  color:#009587; }
+body { font-weight: normal;}
+.logo_h__txt, .logo_link { font: normal 72px/72px Roboto;  color:#ffffff; }
+.sf-menu > li > a { font: normal 20px/20px Roboto;  color:#ffffff; }
+.nav.footer-nav a { font: bold 14px/20px Roboto;  color:#009587; }
+</style>
+<style type="text/css">.mc4wp-form input[name="_mc4wp_required_but_not_really"] { display: none !important; }</style>

@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+/*apply plugin: 'me.tatarka.retrolambda'*/
+
+
+android {
+    compileSdkVersion 'Google Inc.:Google APIs:23'
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.hangover.ashqures.hangover"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.7
+        targetCompatibility = 1.7
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.google.dagger:dagger:2.0.2'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.support:design:23.+'
+    compile 'cz.msebera.android:httpclient:4.4.1.1'
+    /*compile 'org.json:json:20160212'*/
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.github.d-max:spots-dialog:0.4@aar'
+    compile 'javax.inject:javax.inject:1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.crystal:crystalrangeseekbar:1.0.1'
+    /*compiile 'io.reactivex:rxandroid:1.0.1'*/
+    //compile 'com.android.support:support-annotations:23.0.2'
+    provided 'javax.annotation:jsr250-api:1.0'
+
+}

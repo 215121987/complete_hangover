@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="OrderData">
+        <xsd:complexType mixed="true">
+            <xsd:sequence>
+
+                <!-- SERVICEID is mandatory for modify and delete L3Link -->
+                <xsd:element name="serviceId" minOccurs="0" maxOccurs="1" type="xsd:long"/>
+
+                <!-- A end device is mandatory for create and modify -->
+                <xsd:element name="AENDDEVICE" minOccurs="1">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="xsd:string">
+                                <xsd:attribute name="internalRef" type="xsd:int" use="required"/>
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="AENDPORT" minOccurs="1">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="xsd:string">
+                                <xsd:attribute name="internalRef" type="xsd:string" use="required"/>
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <!-- Z end device is mandatory for create and modify -->
+                <xsd:element name="ZENDDEVICE" minOccurs="1">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="xsd:string">
+                                <xsd:attribute name="internalRef" type="xsd:int" use="required"/>
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="ZENDPORT" minOccurs="1">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="xsd:string">
+                                <xsd:attribute name="internalRef" type="xsd:string" use="required"/>
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="LINKONVLAN" minOccurs="1" type="xsd:boolean"/>
+
+                <xsd:element name="VLAN" minOccurs="1" type="xsd:int"/>
+
+                <!-- For current release ENABLEOSPF and ENABLEMPLSTE default true-->
+
+                <xsd:element name="ENABLEOSPF" minOccurs="1" type="xsd:boolean"/>
+                <xsd:element name="ENABLEMPLSTE" minOccurs="1" type="xsd:boolean"/>
+                <xsd:element name="IPADDRESSA" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="MASKA" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="LBINTERFACEAEND" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="OSPFPROCIDAEND" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="OSPFAREAAEND" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="METRICAEND" minOccurs="1" type="xsd:long"/>
+                <xsd:element name="TEMETRICAEND" minOccurs="0" type="xsd:long"/>
+                <xsd:element name="TEATTRIBUTESAEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="ISPERCENTAGEAEND" minOccurs="0" type="xsd:boolean"/>
+                <xsd:element name="BWUNITAEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="GLOBALBWAEND" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="SUBPOOLBWAEND" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="INGRESSAEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="EGRESSAEND" minOccurs="0" type="xsd:string"/>
+
+                <xsd:element name="IPADDRESSZ" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="MASKZ" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="LBINTERFACEZEND" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="OSPFPROCIDZEND" minOccurs="1" type="xsd:string"/>
+                <xsd:element name="OSPFAREAZEND" minOccurs="1" type="xsd:int"/>
+                <xsd:element name="METRICZEND" minOccurs="1" type="xsd:long"/>
+                <xsd:element name="TEMETRICZEND" minOccurs="0" type="xsd:long"/>
+                <xsd:element name="TEATTRIBUTESZEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="ISPERCENTAGEZEND" minOccurs="0" type="xsd:boolean"/>
+                <xsd:element name="BWUNITZEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="GLOBALBWZEND" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="SUBPOOLBWZEND" minOccurs="0" type="xsd:int"/>
+                <xsd:element name="INGRESSZEND" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="EGRESSZEND" minOccurs="0" type="xsd:string"/>
+
+                <xsd:element name="OPERATIONTYPE" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="SERVICETYPE" minOccurs="0" type="xsd:string"/>
+                <xsd:element name="ORDERSERVICETYPE" minOccurs="0" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

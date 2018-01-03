@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/verify_mobile_title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Upload age proof document"
+        android:textIsSelectable="false"
+        style="@style/CustomDialogTitle"/>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/image_chooser_layout">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/choose_image_btn"
+            style="@style/CustomButton"
+            android:text="@string/button_choose"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/capture_image_btn"
+            android:layout_marginStart="1dp"
+            style="@style/CustomButton"
+            android:text="@string/button_capture"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/doc_preview"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        />
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/linearLayout1">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/upload_image_btn"
+            style="@style/CustomButton"
+            android:text="@string/button_upload"/>
+
+    </LinearLayout>
+</LinearLayout>

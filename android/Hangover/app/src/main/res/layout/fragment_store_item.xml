@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <ScrollView
+        android:id="@+id/item_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:focusableInTouchMode="false">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="2.5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="2.5dp"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:id="@+id/item_image_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="10.70"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/item_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dip"
+                    android:src="@drawable/ic_menu_camera" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:textColor="#040404"
+                style="@style/CustomTitleTextView"/>
+
+            <LinearLayout
+                android:id="@+id/item_size_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="10.70"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:padding="10dp">
+
+                <!--<Button
+                    android:id="@+id/item_size"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/circle"
+                    android:text="300"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#fff"
+                    android:padding="5dp"
+                    android:drawableTop="@drawable/ic_check_mark"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="center_vertical" />-->
+
+                <!--<Button
+                    android:id="@+id/item_size_1"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:background="@drawable/circle"
+                    android:text="600"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="#fff"
+                    android:padding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="center_vertical" />-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/item_number_bar_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/item_min_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#040404"
+                    android:text="1"
+                    style="@style/CustomTextview"/>
+                <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+                    android:id="@+id/item_number_bar"
+                    android:layout_width="235dp"
+                    android:layout_height="wrap_content"
+                    app:corner_radius="2"
+                    app:min_value="1"
+                    app:max_value="10"
+                    app:steps="1"
+                    app:bar_color="@color/colorYHighLight"
+                    app:bar_highlight_color="@color/colorAccent"
+                    app:left_thumb_color="@color/colorPrimary"
+                    app:left_thumb_color_pressed="@color/colorPrimary"
+                    app:data_type="_integer"/>
+                <TextView
+                    android:id="@+id/item_max_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#040404"
+                    android:text="10"
+                    style="@style/CustomTextview"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/item_view_action"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <Button
+                    android:id="@+id/add_to_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/button_add_to_cart"
+                    style="@style/CustomButton"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/item_description_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/item_description_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/CustomTitleTextView"
+                    android:text="@string/layout_title_item_description"/>
+                <TextView
+                    android:id="@+id/item_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/CustomTextview"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

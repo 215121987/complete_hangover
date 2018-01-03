@@ -1,0 +1,53 @@
+<params>
+    <package>ProvisioningDriver</package>
+    <workflow>provideService</workflow>
+    <argument>Bidirectional TE Tunnel</argument>
+    <argument><![CDATA[
+<OrderData>
+    <Customer internalRef="201201">Infrastructure</Customer>
+    <OrderServiceType>Bidirectional TE Tunnel</OrderServiceType>
+    <ServiceName>Test_54321</ServiceName>
+    <ServiceDescription>Test_54321</ServiceDescription>
+    <WrapProtection>false</WrapProtection>
+    <FaultOamEnable>true</FaultOamEnable>
+    <ProtectionType>Working</ProtectionType>
+    <DeployAction>ConfigPreview</DeployAction>
+    <OperationType>ProvideService</OperationType>
+    <XvcType>Point-to-Point</XvcType>
+    <ServiceType>Bidirectional TE Tunnel</ServiceType>
+    <Source internalRef="798798">NCS4206-120.32.SWIM.cisco.com</Source>
+    <SourceAddress>OSPF 6.6.6.32 [6]</SourceAddress>
+    <SourceLoopBack>Loopback6</SourceLoopBack>
+    <Destination internalRef="798943">NCS4206-120.33.cisco.com</Destination>
+    <DestinationAddress>OSPF 6.6.6.33 [6]</DestinationAddress>
+    <DestinationLoopBack>Loopback6</DestinationLoopBack>
+    <GlobalId>0</GlobalId>
+    <AffinityMask>fff</AffinityMask>
+    <HoldPriority>3</HoldPriority>
+    <BandwidthPoolType>Global</BandwidthPoolType>
+    <BandWidth>20 Kbps</BandWidth>
+    <EnableBfdSettings>true</EnableBfdSettings>
+    <MinInterval>100</MinInterval>
+    <Multiplier>3</Multiplier>
+    <SourceId/>
+    <OldSource>NCS4206-120.32.SWIM.cisco.com</OldSource>
+    <OldSourceId>798798</OldSourceId>
+    <DestinationId/>
+    <OldDestination>NCS4206-120.33.cisco.com</OldDestination>
+    <OldDestinationId>798943</OldDestinationId>
+    <WorkingPathConstraintType>Dynamic</WorkingPathConstraintType>
+    <IsNewWorkingPath>true</IsNewWorkingPath>
+    <WorkingPathName/>
+    <ExistingWorkingPath/>
+    <ProtectionPathConstraintType>Dynamic</ProtectionPathConstraintType>
+    <IsNewProtectionPath>true</IsNewProtectionPath>
+    <ProtectionPathName/>
+    <ExistingProtectionPath/>
+    <RestorePathConstraintType>Dynamic</RestorePathConstraintType>
+    <IsNewRestorePath>true</IsNewRestorePath>
+    <RestorePathName/>
+    <ExistingRestorePath/>
+</OrderData>
+]]></argument>
+    <argument>true</argument>
+</params>

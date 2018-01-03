@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/confirm_location_title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Confirm your location for better service"
+        android:textIsSelectable="false"
+        style="@style/CustomDialogTitle"/>
+    <EditText
+        android:id="@+id/otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zip Code"
+        android:inputType="number"
+        android:maxLines="1"
+        style="@style/CustomEditTextView"
+        android:singleLine="true" />
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/linearLayout1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/confirm_location_btn"
+            style="@style/CustomButton"
+            android:text="@string/button_confirm"/>
+
+    </LinearLayout>
+</LinearLayout>

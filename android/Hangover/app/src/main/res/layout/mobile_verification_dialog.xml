@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/verify_mobile_title"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Verify your mobile"
+        android:textIsSelectable="false"
+        style="@style/CustomDialogTitle"/>
+    <EditText
+        android:id="@+id/otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter OTP"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        style="@style/CustomEditTextView"
+        android:singleLine="true" />
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/linearLayout1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/resend_otp"
+            style="@style/CustomButton"
+            android:text="@string/button_resend"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/verify_mobile"
+            android:layout_marginStart="1dp"
+            style="@style/CustomButton"
+            android:text="@string/button_verify"/>
+    </LinearLayout>
+</LinearLayout>

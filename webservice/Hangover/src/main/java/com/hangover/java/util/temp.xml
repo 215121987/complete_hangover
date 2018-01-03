@@ -1,0 +1,119 @@
+<OrderData>
+    <CUSTOMER internalRef="201201">Infrastructure</CUSTOMER>
+    <ORDERSERVICETYPE>Bidirectional TE Tunnel</ORDERSERVICETYPE>
+    <SERVICENAME>Explicit_path</SERVICENAME>
+    <SERVICEDESCRIPTION>Explicit_path</SERVICEDESCRIPTION>
+    <WRAPPROTECTION>false</WRAPPROTECTION>
+    <EnableFaultOam>TRUE</EnableFaultOam>
+    <EnableAutoRoute>false</EnableAutoRoute>
+    <EnableLockDown>false</EnableLockDown>
+    <ENABLEBFDSETTINGS>true</ENABLEBFDSETTINGS>
+    <PROTECTIONTYPE>Working+Protected+Restore</PROTECTIONTYPE>
+    <DEPLOYACTION>ConfigPreview</DEPLOYACTION>
+    <OPERATIONTYPE>ProvideService</OPERATIONTYPE>
+    <XVCTYPE>Point-to-Point</XVCTYPE>
+    <SERVICETYPE>Bidirectional TE Tunnel</SERVICETYPE>
+    <CurrentSection>Constraint</CurrentSection>
+    <SOURCE internalRef="3710707">EPNNCS4016-120.28</SOURCE>
+    <SOURCEADDRESS internalRef="3723722">OSPF 6.6.6.28 [6]</SOURCEADDRESS>
+    <SOURCELOOPBACK>Loopback6</SOURCELOOPBACK>
+    <DESTINATION internalRef="1749748">EPNNCS4009-120.25</DESTINATION>
+    <DESTINATIONADDRESS>OSPF 6.6.6.68 [6]</DESTINATIONADDRESS>
+    <DESTINATIONLOOPBACK>Loopback0</DESTINATIONLOOPBACK>
+    <GLOBALID>0</GLOBALID>
+    <AFFINITYBITS>bbb</AFFINITYBITS>
+    <AFFINITMASK>fff</AFFINITMASK>
+    <SETUPPRIORITY>6</SETUPPRIORITY>
+    <HOLDPRIORITY>4</HOLDPRIORITY>
+    <POOLTYPE>Global</POOLTYPE>
+    <BANDWIDTH>20 Kbps</BANDWIDTH>
+    <BfdMinInterval>100</BfdMinInterval>
+    <BfdMultiplier>3</BfdMultiplier>
+    <SOURCEID/>
+    <OLDSOURCE>EPNNCS4016-120.28</OLDSOURCE>
+    <OLDSOURCEID>3710707</OLDSOURCEID>
+    <DESTINATIONID/>
+    <OLDDESTINATION>EPNNCS4009-120.25</OLDDESTINATION>
+    <OLDDESTINATIONID>1749748</OLDDESTINATIONID>
+    <DEVICENAME/>
+    <DummySource>EPNNCS4016-120.28 [3710707]</DummySource>
+    <DummyDestination>EPNNCS4009-120.25 [1749748]</DummyDestination>
+    <PathProtectionType>Restore</PathProtectionType>
+    <WorkingPathConstraintType>Explicit</WorkingPathConstraintType>
+    <IsNewWorkingPath>true</IsNewWorkingPath>
+    <WorkingPathName>WP10</WorkingPathName>
+    <ExistingWorkingPath/>
+    <WorkingPath>
+        <ROW id="0">
+            <Hop>NCS4206-120.33</Hop>
+            <HopId>798943</HopId>
+            <PathAddress>172.10.32.1 (BDI132)</PathAddress>
+            <PathAddressId>848681</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+        <ROW id="1">
+            <Hop>NCS4206-120.32</Hop>
+            <HopId>798798</HopId>
+            <PathAddress>172.10.21.1 (BDI121)</PathAddress>
+            <PathAddressId>847850</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+    </WorkingPath>
+    <ProtectionPathConstraintType>Explicit</ProtectionPathConstraintType>
+    <IsNewProtectionPath>true</IsNewProtectionPath>
+    <ProtectionPathName>PP10</ProtectionPathName>
+    <ExistingProtectionPath/>
+    <ProtectionPath>
+        <ROW id="0">
+            <Hop>EPNNCS4009-120.162</Hop>
+            <HopId>3710713</HopId>
+            <PathAddress>172.10.21.2 (TenGigE0/0/0/2)</PathAddress>
+            <PathAddressId>3783795</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+        <ROW id="1">
+            <Hop>NCS4206-120.33</Hop>
+            <HopId>798943</HopId>
+            <PathAddress>172.10.33.1 (BDI133)</PathAddress>
+            <PathAddressId>848689</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+        <ROW id="2">
+            <Hop>NCS4206-120.32</Hop>
+            <HopId>798798</HopId>
+            <PathAddress>172.10.22.1 (BDI122)</PathAddress>
+            <PathAddressId>847848</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+    </ProtectionPath>
+    <RestorePathConstraintType>Explicit</RestorePathConstraintType>
+    <IsNewRestorePath>true</IsNewRestorePath>
+    <RestorePathName>RP10</RestorePathName>
+    <ExistingRestorePath/>
+    <RestorePath>
+        <ROW id="0">
+            <Hop>NCS4206-120.33</Hop>
+            <HopId>798943</HopId>
+            <PathAddress>33.33.33.31 (BDI37)</PathAddress>
+            <PathAddressId>3783865</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+        <ROW id="1">
+            <Hop>EPNNCS4009-120.162</Hop>
+            <HopId>3710713</HopId>
+            <PathAddress>172.10.22.2 (TenGigE0/0/0/2)</PathAddress>
+            <PathAddressId>3783797</PathAddressId>
+            <PathConstraintType>Include</PathConstraintType>
+            <OldPathConstraintType>Include</OldPathConstraintType>
+        </ROW>
+    </RestorePath>
+    <SelectedHop/>
+    <CurrentHop>798943</CurrentHop>
+    <SelectedInterface>3783795,847848</SelectedInterface>
+</OrderData>

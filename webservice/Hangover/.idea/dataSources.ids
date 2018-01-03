@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.7.9" jdbc-version="4.0" driver-version="mysql-connector-java-5.1.36 ( Revision: 4fc1f969f740409a4e03750316df2c0e429f3dc8 )" uuid="533b785e-938c-4d7f-99ea-9b7a2f60feab">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>dfdddfcfdfc6dfc9dfc5dfc7dfcf</user-password>
+    <schema-pattern>MobyRx.*</schema-pattern>
+    <libraries>
+      <library>
+        <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar!/</url>
+      </library>
+    </libraries>
+    <table name="DependentPatient" schema="" catalog="MobyRx" type="TABLE">
+      <column name="DependentId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="DOB" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
+      <column name="Gender" sqlType="ENUM" length="2" precision="0" nullable="false" jdbcType="1" />
+      <column name="BloodGroup" sqlType="VARCHAR" length="5" precision="0" nullable="true" jdbcType="12" />
+      <column name="ParentId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="IsAllowed" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="dependentid" />
+      <foreign-key name="PatientId_FK" columns="ParentId" ref-table="MstrPatient" ref-schema="" ref-catalog="MobyRx" ref-columns="PatientId" />
+      <index name="PatientId_FK_idx" unique="false" columns="ParentId" />
+    </table>
+    <table name="Friend" schema="" catalog="MobyRx" type="TABLE">
+      <column name="MemberId1" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="MemberId2" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="StatusId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="IsAllowed" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="memberid1,memberid2" />
+      <foreign-key name="MemberId12_FK" columns="MemberId1" ref-table="MstrPatient" ref-schema="" ref-catalog="MobyRx" ref-columns="PatientId" />
+      <foreign-key name="MemberId22_FK" columns="MemberId2" ref-table="MstrPatient" ref-schema="" ref-catalog="MobyRx" ref-columns="PatientId" />
+      <index name="FamilyId_Fk9_idx" unique="false" columns="MemberId1" />
+      <index name="Fk_PF_PatientId_idx" unique="false" columns="StatusId" />
+      <index name="PatientId_FK8_idx" unique="false" columns="MemberId2" />
+    </table>
+    <table name="Logtable" schema="" catalog="MobyRx" type="TABLE">
+      <column name="LogId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Info" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="logid" />
+    </table>
+    <table name="MstrCity" schema="" catalog="MobyRx" type="TABLE">
+      <column name="CityId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CityName" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="IsOn" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <primary-key name="PRIMARY" columns="cityid" />
+      <foreign-key name="StateId_FK6" columns="StateId" ref-table="MstrState" ref-schema="" ref-catalog="MobyRx" ref-columns="StateId" />
+      <index name="StateId_FK_idx" unique="false" columns="StateId" />
+      <index name="StateId_FK_idx1" unique="false" columns="StateId" />
+      <index name="StateId_FK_idx2" unique="false" columns="StateId" />
+      <index name="StateId_FK_idx5" unique="false" columns="StateId" />
+    </table>
+    <table name="MstrClinic" schema="" catalog="MobyRx" type="TABLE">
+      <column name="ClinicId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Name" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12" />
+      <column name="Address" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="ClinicEmail" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="Telephone" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12" />
+      <column name="CityId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Pincode" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="Latitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="Longitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="HospitalCategory" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="Facilities" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="Website" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="VerifiedClinic" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="ModifiedDate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="clinicid" />
+      <foreign-key name="CityId_FK3" columns="CityId" ref-table="MstrCity" ref-schema="" ref-catalog="MobyRx" ref-columns="CityId" />
+      <foreign-key name="CountryId_FK3" columns="CountryId" ref-table="MstrCountry" ref-schema="" ref-catalog="MobyRx" ref-columns="CountryId" />
+      <foreign-key name="StateId_FK3" columns="StateId" ref-table="MstrState" ref-schema="" ref-catalog="MobyRx" ref-columns="StateId" />
+      <index name="CityId_FK_idx" unique="false" columns="CountryId" />
+      <index name="CityId_FK_idx1" unique="false" columns="CityId" />
+      <index name="CityId_FK_idx2" unique="false" columns="CountryId" />
+      <index name="Latitude" unique="false" columns="Latitude" />
+      <index name="Longitude" unique="false" columns="Longitude" />
+      <index name="StateId_FK_idx" unique="false" columns="StateId" />
+      <index name="StateId_FK_idx2" unique="false" columns="StateId" />
+    </table>
+    <table name="MstrCountry" schema="" catalog="MobyRx" type="TABLE">
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="CountryName" sqlType="VARCHAR" length="15" precision="0" nullable="false" jdbcType="12" />
+      <column name="IsOn" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <primary-key name="PRIMARY" columns="countryid" />
+    </table>
+    <table name="MstrDoctor" schema="" catalog="MobyRx" type="TABLE">
+      <column name="DoctorId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="Gender" sqlType="ENUM" length="2" precision="0" nullable="false" jdbcType="1" />
+      <column name="MedicalRegNo" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="DOB" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
+      <column name="BloodGroup" sqlType="VARCHAR" length="5" precision="0" nullable="true" jdbcType="12" />
+      <column name="BGLastDonated" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="BeginPracticeDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" />
+      <column name="Qualification" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="Specialization" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="Achievements" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12" />
+      <column name="Certificates" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12" />
+      <column name="DocAssociation" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12" />
+      <column name="Address" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="CityId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Pincode" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Signature" sqlType="BLOB" length="65535" precision="0" nullable="true" jdbcType="-4" />
+      <column name="IsVerified" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" def="MA==" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="ModifiedDate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="GCMReg" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
+      <primary-key name="PRIMARY" columns="doctorid" />
+      <foreign-key name="City_Id_FK6" columns="CityId" ref-table="MstrCity" ref-schema="" ref-catalog="MobyRx" ref-columns="CityId" />
+      <foreign-key name="CountryId_FK5" columns="CountryId" ref-table="MstrCountry" ref-schema="" ref-catalog="MobyRx" ref-columns="CountryId" />
+      <foreign-key name="SateId_FK7" columns="StateId" ref-table="MstrState" ref-schema="" ref-catalog="MobyRx" ref-columns="StateId" />
+      <foreign-key name="UserId_FK3" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="MedicalRegNo_UNIQUE" unique="true" columns="MedicalRegNo" />
+      <index name="UserId_UNIQUE" unique="true" columns="UserId" />
+      <index name="City_Id_FK6_idx" unique="false" columns="CityId" />
+      <index name="CountryId_FK2_idx" unique="false" columns="CountryId" />
+      <index name="CountryId_FK3_idx" unique="false" columns="CountryId" />
+      <index name="CountryId_FK5_idx" unique="false" columns="CountryId" />
+      <index name="SateId_FK7_idx" unique="false" columns="StateId" />
+      <index name="UserId_FK3_idx" unique="false" columns="UserId" />
+    </table>
+    <table name="MstrDrug" schema="" catalog="MobyRx" type="TABLE">
+      <column name="DrugId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Manufacturer" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="BrandName" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="DrugType" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="MeasurementUnit" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12" />
+      <column name="Constituents" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="Package" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="Price" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <primary-key name="PRIMARY" columns="drugid" />
+      <index name="BrandName" unique="false" columns="BrandName" />
+    </table>
+    <table name="MstrPatient" schema="" catalog="MobyRx" type="TABLE">
+      <column name="PatientId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="Gender" sqlType="ENUM" length="2" precision="0" nullable="false" jdbcType="1" />
+      <column name="DOB" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91" />
+      <column name="BloodGroup" sqlType="VARCHAR" length="5" precision="0" nullable="true" jdbcType="12" />
+      <column name="BGLastDonated" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="Address" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="CityId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Pincode" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Latitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="Longitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="ModifiedDate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="GCMReg" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1" />
+      <primary-key name="PRIMARY" columns="patientid" />
+      <foreign-key name="CityId_FK5" columns="CityId" ref-table="MstrCity" ref-schema="" ref-catalog="MobyRx" ref-columns="CityId" />
+      <foreign-key name="CountryId_FK7" columns="CountryId" ref-table="MstrCountry" ref-schema="" ref-catalog="MobyRx" ref-columns="CountryId" />
+      <foreign-key name="StateId_Fk5" columns="StateId" ref-table="MstrState" ref-schema="" ref-catalog="MobyRx" ref-columns="StateId" />
+      <foreign-key name="UserId_FK5" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="UserId_UNIQUE" unique="true" columns="UserId" />
+      <index name="CityId_FK5_idx" unique="false" columns="CityId" />
+      <index name="CountryId_FK7_idx" unique="false" columns="CountryId" />
+      <index name="Latitude" unique="false" columns="Latitude" />
+      <index name="Longitude" unique="false" columns="Longitude" />
+      <index name="StateId_Fk5_idx" unique="false" columns="StateId" />
+      <index name="UserId_FK5_idx" unique="false" columns="UserId" />
+    </table>
+    <table name="MstrPharma" schema="" catalog="MobyRx" type="TABLE">
+      <column name="PharmaId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="PharmaName" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="LicenseNumber" sqlType="VARCHAR" length="15" precision="0" nullable="false" jdbcType="12" />
+      <column name="PhoneNumber" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="Gender" sqlType="ENUM" length="2" precision="0" nullable="false" jdbcType="1" />
+      <column name="Address" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12" />
+      <column name="CityId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Pincode" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="Latitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="Longitude" sqlType="DECIMAL" length="9" precision="6" nullable="true" jdbcType="3" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="pharmaid" />
+      <foreign-key name="CityId_FK4" columns="CityId" ref-table="MstrCity" ref-schema="" ref-catalog="MobyRx" ref-columns="CityId" />
+      <foreign-key name="CountryId_FK4" columns="CountryId" ref-table="MstrCountry" ref-schema="" ref-catalog="MobyRx" ref-columns="CountryId" />
+      <foreign-key name="StateId_FK4" columns="StateId" ref-table="MstrState" ref-schema="" ref-catalog="MobyRx" ref-columns="StateId" />
+      <foreign-key name="UserId_FK4" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="CityId_FK_idx4" unique="false" columns="CityId" />
+      <index name="CountryId_FK_idx4" unique="false" columns="CountryId" />
+      <index name="Latitude" unique="false" columns="Latitude" />
+      <index name="Longitude" unique="false" columns="Longitude" />
+      <index name="StateId_FK_idx4" unique="false" columns="StateId" />
+      <index name="UserId_FK_idx4" unique="false" columns="UserId" />
+    </table>
+    <table name="MstrPrescription" schema="" catalog="MobyRx" type="TABLE">
+      <column name="PrescriptionId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="DoctorId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ClinicId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="PatientId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="DependentId" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="IsPermitted" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="IsDelivered" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="RefillExpiry" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="prescriptionid" />
+      <foreign-key name="ClinicId_FK3" columns="ClinicId" ref-table="MstrClinic" ref-schema="" ref-catalog="MobyRx" ref-columns="ClinicId" />
+      <foreign-key name="DependentId_FK3" columns="DependentId" ref-table="DependentPatient" ref-schema="" ref-catalog="MobyRx" ref-columns="DependentId" />
+      <foreign-key name="DoctorId_FK3" columns="DoctorId" ref-table="MstrDoctor" ref-schema="" ref-catalog="MobyRx" ref-columns="DoctorId" />
+      <foreign-key name="PatientId_FK3" columns="PatientId" ref-table="MstrPatient" ref-schema="" ref-catalog="MobyRx" ref-columns="PatientId" />
+      <index name="ClinicId_FK3_idx" unique="false" columns="ClinicId" />
+      <index name="DependentId_FK3_idx" unique="false" columns="DependentId" />
+      <index name="DoctorId_FK3_idx" unique="false" columns="DoctorId" />
+      <index name="PatientId_FK3_idx" unique="false" columns="PatientId" />
+    </table>
+    <table name="MstrReferral" schema="" catalog="MobyRx" type="TABLE">
+      <column name="ReferredBy" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ReferredTo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <foreign-key name="FK_Ref_UserId1" columns="ReferredBy" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" cascade-update="true" cascade-remove="true" />
+      <foreign-key name="FK_Ref_UserId2" columns="ReferredTo" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" cascade-update="true" cascade-remove="true" />
+      <index name="ReferredBy_idx" unique="false" columns="ReferredBy" />
+      <index name="ReferredTo_idx" unique="false" columns="ReferredTo" />
+    </table>
+    <table name="MstrRole" schema="" catalog="MobyRx" type="TABLE">
+      <column name="RoleId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="RoleName" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="roleid" />
+    </table>
+    <table name="MstrState" schema="" catalog="MobyRx" type="TABLE">
+      <column name="StateId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="CountryId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="StateName" sqlType="VARCHAR" length="35" precision="0" nullable="false" jdbcType="12" />
+      <column name="IsOn" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <primary-key name="PRIMARY" columns="stateid" />
+      <foreign-key name="CountryId_FK2" columns="CountryId" ref-table="MstrCountry" ref-schema="" ref-catalog="MobyRx" ref-columns="CountryId" />
+      <index name="CountryId_FK2_idx" unique="false" columns="CountryId" />
+    </table>
+    <table name="MstrUser" schema="" catalog="MobyRx" type="TABLE">
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Email" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="Mobile" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="Password" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="IsEmailVerified" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsPhoneVerified" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="ReferralCode" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12" />
+      <column name="ReferredCode" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="userid" />
+      <index name="Email_UNIQUE" unique="true" columns="Email" />
+      <index name="Mobile_UNIQUE" unique="true" columns="Mobile" />
+      <index name="ReferralCode_UNIQUE" unique="true" columns="ReferralCode" />
+      <index name="EmailId_Idx" unique="false" columns="Email" />
+      <index name="Mobile_Idx" unique="false" columns="Mobile" />
+    </table>
+    <table name="MstrUserRole" schema="" catalog="MobyRx" type="TABLE">
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="RoleId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="userid,roleid" />
+      <foreign-key name="RoleId_FK9" columns="RoleId" ref-table="MstrRole" ref-schema="" ref-catalog="MobyRx" ref-columns="RoleId" />
+      <foreign-key name="UserId_FK9" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="RoleId_FK3_idx" unique="false" columns="RoleId" />
+      <index name="RoleId_FK4_idx" unique="false" columns="RoleId" />
+      <index name="UserId_idx2" unique="false" columns="UserId" />
+    </table>
+    <table name="RefClinicDoctor" schema="" catalog="MobyRx" type="TABLE">
+      <column name="RefCDId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="ClinicId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="DoctorId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="refcdid" />
+      <foreign-key name="ClinicId_FK4" columns="ClinicId" ref-table="MstrClinic" ref-schema="" ref-catalog="MobyRx" ref-columns="ClinicId" />
+      <foreign-key name="DoctorId_FK5" columns="DoctorId" ref-table="MstrDoctor" ref-schema="" ref-catalog="MobyRx" ref-columns="DoctorId" />
+      <index name="ClinicId_FK3_idx" unique="false" columns="ClinicId" />
+      <index name="DoctorId_FK3_idx" unique="false" columns="DoctorId" />
+    </table>
+    <table name="RefClinicPharma" schema="" catalog="MobyRx" type="TABLE">
+      <column name="RefCPId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="ClinicId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="PharmaId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="refcpid" />
+      <foreign-key name="ClinicId_FK6" columns="ClinicId" ref-table="MstrClinic" ref-schema="" ref-catalog="MobyRx" ref-columns="ClinicId" />
+      <foreign-key name="PharmaId_FK6" columns="PharmaId" ref-table="MstrPharma" ref-schema="" ref-catalog="MobyRx" ref-columns="PharmaId" />
+      <index name="ClinicId_FK6_idx" unique="false" columns="ClinicId" />
+      <index name="PharmaId_FK6_idx" unique="false" columns="PharmaId" />
+    </table>
+    <table name="RefPrescription" schema="" catalog="MobyRx" type="TABLE">
+      <column name="RefPrescriptionId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="PrescriptionId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="DrugId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Dosage" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12" />
+      <column name="Duration" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Quantity" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="IsBeforeBrkFast" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsAfterBrkFast" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsBeforeLunch" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsAfterLunch" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsBeforeDinner" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="IsAfterDinner" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA==" />
+      <column name="Instruction" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12" def="JzAn" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="refprescriptionid" />
+      <foreign-key name="DrugId_FK6" columns="DrugId" ref-table="MstrDrug" ref-schema="" ref-catalog="MobyRx" ref-columns="DrugId" />
+      <foreign-key name="PrescriptionId_FK5" columns="PrescriptionId" ref-table="MstrPrescription" ref-schema="" ref-catalog="MobyRx" ref-columns="PrescriptionId" />
+      <index name="DrugId_FK5_idx" unique="false" columns="DrugId" />
+      <index name="DrugId_FK8_idx" unique="false" columns="DrugId" />
+      <index name="PrescriptionId_FK12_idx" unique="false" columns="PrescriptionId" />
+      <index name="PrescriptionId_FK9_idx" unique="false" columns="PrescriptionId" />
+    </table>
+    <table name="RefillQueue" schema="" catalog="MobyRx" type="TABLE">
+      <column name="QueueId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="PrescriptionId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="StatusId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="UpdationDate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="queueid" />
+      <foreign-key name="PrescriptionId_FK9" columns="PrescriptionId" ref-table="MstrPrescription" ref-schema="" ref-catalog="MobyRx" ref-columns="PrescriptionId" />
+      <foreign-key name="StatusId_FK8" columns="StatusId" ref-table="Status" ref-schema="" ref-catalog="MobyRx" ref-columns="StatusId" />
+      <index name="PrescriptionId_FK9_idx" unique="false" columns="PrescriptionId" />
+      <index name="StatusId_FK8_idx" unique="false" columns="StatusId" />
+    </table>
+    <table name="Status" schema="" catalog="MobyRx" type="TABLE">
+      <column name="StatusId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="Status" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <primary-key name="PRIMARY" columns="statusid" />
+    </table>
+    <table name="Token" schema="" catalog="MobyRx" type="TABLE">
+      <column name="TokenId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="AuthToken" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12" />
+      <column name="IssuedOn" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="ExpiredOn" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <primary-key name="PRIMARY" columns="tokenid" />
+      <foreign-key name="UserId_FK10" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="AuthToken" unique="false" columns="AuthToken" />
+      <index name="UserId_FK10_idx" unique="false" columns="UserId" />
+      <index name="UserId_FK3_idx" unique="false" columns="UserId" />
+      <index name="UserId_FK5_idx" unique="false" columns="UserId" />
+      <index name="UserId_FK7_idx" unique="false" columns="UserId" />
+    </table>
+    <table name="UserActivation" schema="" catalog="MobyRx" type="TABLE">
+      <column name="UserId" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ActivationKey" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="Source" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="CreatedDate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <foreign-key name="UserId_FK1" columns="UserId" ref-table="MstrUser" ref-schema="" ref-catalog="MobyRx" ref-columns="UserId" />
+      <index name="ActivationKey_UNIQUE" unique="true" columns="ActivationKey" />
+      <index name="UserId_FK_idx" unique="false" columns="UserId" />
+    </table>
+    <procedure name="ActivateUser" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Activation_Output" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="4" index="2" />
+      </prototype>
+    </procedure>
+    <procedure name="AddClinic" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="DoctorId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Name_Input" sqlType="VARCHAR" length="45" precision="45" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="Address_Input" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="3" />
+        <parameter name="ClinicEmail_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="4" />
+        <parameter name="Telephone_Input" sqlType="VARCHAR" length="20" precision="20" nullable="true" jdbcType="12" type="1" index="5" />
+        <parameter name="CityId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="6" />
+        <parameter name="StateId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="7" />
+        <parameter name="CountryId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="8" />
+        <parameter name="Pincode_Input" sqlType="VARCHAR" length="15" precision="15" nullable="true" jdbcType="12" type="1" index="9" />
+        <parameter name="Latitude_Input" sqlType="VARCHAR" length="45" precision="45" nullable="true" jdbcType="12" type="1" index="10" />
+        <parameter name="Longitude_Input" sqlType="VARCHAR" length="45" precision="45" nullable="true" jdbcType="12" type="1" index="11" />
+        <parameter name="HospitalCategory_Input" sqlType="VARCHAR" length="15" precision="15" nullable="true" jdbcType="12" type="1" index="12" />
+        <parameter name="Facilities_Input" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="13" />
+        <parameter name="Website_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="14" />
+      </prototype>
+    </procedure>
+    <procedure name="AddDependent" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="PatientId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Name_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="DOB_Input" sqlType="DATE" length="10" precision="10" nullable="true" jdbcType="91" type="1" index="3" />
+        <parameter name="Gender_Input" sqlType="ENUM" length="2" precision="2" nullable="true" jdbcType="1" type="1" index="4" />
+        <parameter name="BloodGroup_Input" sqlType="VARCHAR" length="5" precision="5" nullable="true" jdbcType="12" type="1" index="5" />
+      </prototype>
+    </procedure>
+    <procedure name="AddFamilyMember" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="IsOwner_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="PatientId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="2" />
+        <parameter name="Relation_Input" sqlType="VARCHAR" length="15" precision="15" nullable="true" jdbcType="12" type="1" index="3" />
+        <parameter name="FamilyName_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="4" />
+      </prototype>
+    </procedure>
+    <procedure name="AddFriend" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="PatientId1_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="PatientId2_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="2" />
+      </prototype>
+    </procedure>
+    <procedure name="CreatePrescription" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="DoctorId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="ClinicId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="2" />
+        <parameter name="PatientId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="3" />
+        <parameter name="DependentId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="4" />
+        <parameter name="RefillExpiry_Input" sqlType="DATE" length="10" precision="10" nullable="true" jdbcType="91" type="1" index="5" />
+        <parameter name="PrescriptionId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="6" />
+      </prototype>
+    </procedure>
+    <procedure name="DependentPrescription" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="DoctorId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="ClinicId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="2" />
+        <parameter name="PatientId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="3" />
+        <parameter name="DependentId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="4" />
+        <parameter name="DrugId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="5" />
+        <parameter name="Dosage_Input" sqlType="VARCHAR" length="5" precision="5" nullable="true" jdbcType="12" type="1" index="6" />
+        <parameter name="Duration_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="7" />
+        <parameter name="Quantity_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="8" />
+        <parameter name="IsBeforeBrkFast_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="9" />
+        <parameter name="IsAfterBrkFast_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="10" />
+        <parameter name="IsBeforeLunch_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="11" />
+        <parameter name="IsAfterLunch_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="12" />
+        <parameter name="IsBeforeDinner_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="13" />
+        <parameter name="IsAfterDinner_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="14" />
+        <parameter name="Instruction_Input" sqlType="VARCHAR" length="45" precision="45" nullable="true" jdbcType="12" type="1" index="15" />
+        <parameter name="IsRefill_Input" sqlType="BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="1" index="16" />
+        <parameter name="RefillExpiry_Input" sqlType="DATETIME" length="19" precision="19" nullable="true" jdbcType="93" type="1" index="17" />
+      </prototype>
+    </procedure>
+    <procedure name="FriendRequest" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="PatientId1_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Mobile_Input" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="1" index="2" />
+      </prototype>
+    </procedure>
+    <procedure name="GenerateEmailOTP" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Source_Input" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="Activation_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="3" />
+      </prototype>
+    </procedure>
+    <procedure name="GenerateMobileOTP" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Source_Input" sqlType="VARCHAR" length="20" precision="20" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="Activation_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="3" />
+      </prototype>
+    </procedure>
+    <procedure name="GetPrescriptionId" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="DoctorId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="ClinicId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="2" />
+        <parameter name="PatientId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="3" />
+        <parameter name="DependentId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="4" />
+        <parameter name="PrescriptionId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="5" />
+      </prototype>
+    </procedure>
+    <procedure name="InsertDoctorInfo" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Name_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="Gender_Input" sqlType="ENUM" length="2" precision="2" nullable="true" jdbcType="1" type="1" index="3" />
+        <parameter name="MedicalRegNo_Input" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="4" />
+        <parameter name="DOB_Input" sqlType="DATE" length="10" precision="10" nullable="true" jdbcType="91" type="1" index="5" />
+        <parameter name="BloodGroup_Input" sqlType="VARCHAR" length="5" precision="5" nullable="true" jdbcType="12" type="1" index="6" />
+        <parameter name="BGLastDonated_Input" sqlType="DATETIME" length="19" precision="19" nullable="true" jdbcType="93" type="1" index="7" />
+        <parameter name="BeginPracticeDate_Input" sqlType="DATETIME" length="19" precision="19" nullable="true" jdbcType="93" type="1" index="8" />
+        <parameter name="Qualification_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="9" />
+        <parameter name="Specialization_Input" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="10" />
+        <parameter name="Achievements_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="11" />
+        <parameter name="Certificates_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="12" />
+        <parameter name="DocAssociation_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="13" />
+        <parameter name="Address_Input" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="14" />
+        <parameter name="CityId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="15" />
+        <parameter name="StateId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="16" />
+        <parameter name="CountryId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="17" />
+        <parameter name="Pincode_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="18" />
+        <parameter name="Signature_Input" sqlType="BLOB" length="65535" precision="65535" nullable="true" jdbcType="-4" type="1" index="19" />
+      </prototype>
+    </procedure>
+    <procedure name="InsertPatientInfo" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Name_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="Gender_Input" sqlType="ENUM" length="2" precision="2" nullable="true" jdbcType="1" type="1" index="3" />
+        <parameter name="DOB_Input" sqlType="DATE" length="10" precision="10" nullable="true" jdbcType="91" type="1" index="4" />
+        <parameter name="BloodGroup_Input" sqlType="VARCHAR" length="5" precision="5" nullable="true" jdbcType="12" type="1" index="5" />
+        <parameter name="BGLastDonated_Input" sqlType="DATETIME" length="19" precision="19" nullable="true" jdbcType="93" type="1" index="6" />
+        <parameter name="Address_Input" sqlType="VARCHAR" length="100" precision="100" nullable="true" jdbcType="12" type="1" index="7" />
+        <parameter name="CityId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="8" />
+        <parameter name="StateId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="9" />
+        <parameter name="CountryId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="10" />
+        <parameter name="Pincode_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="11" />
+        <parameter name="Latitude_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="12" />
+        <parameter name="Longitude_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="13" />
+      </prototype>
+    </procedure>
+    <procedure name="NewUserRegistration" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="Email_Id" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="1" />
+        <parameter name="Mobile_No" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="1" index="2" />
+        <parameter name="Password" sqlType="VARCHAR" length="15" precision="15" nullable="true" jdbcType="12" type="1" index="3" />
+        <parameter name="RefferedCode" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="4" />
+        <parameter name="RoleId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="5" />
+        <parameter name="IsExistingUser" sqlType="TINYINT" length="3" precision="3" nullable="true" jdbcType="-6" type="4" index="6" />
+        <parameter name="UserId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="7" />
+      </prototype>
+    </procedure>
+    <procedure name="UnregisteredPatient" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="Name_Input" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="1" />
+        <parameter name="Mobile_Input" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="1" index="2" />
+        <parameter name="Email_Input" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="3" />
+        <parameter name="Gender_Input" sqlType="ENUM" length="2" precision="2" nullable="true" jdbcType="1" type="1" index="4" />
+        <parameter name="Referred_Input" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="5" />
+        <parameter name="Password_Output" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="4" index="6" />
+        <parameter name="PatientId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="7" />
+        <parameter name="Exist_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="8" />
+      </prototype>
+    </procedure>
+    <procedure name="UserLogin" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserName" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="1" />
+        <parameter name="Password_IN" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="UserId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="3" />
+        <parameter name="Email_Output" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="4" index="4" />
+        <parameter name="Mobile_Output" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="4" index="5" />
+        <parameter name="IsEmailVerified_Output" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" type="4" index="6" />
+        <parameter name="IsPhoneVerified_Output" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" type="4" index="7" />
+        <parameter name="ReferralCode_Output" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="4" index="8" />
+        <parameter name="Password_Status" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="9" />
+      </prototype>
+    </procedure>
+    <procedure name="UserLoginNew" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="UserName" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="1" />
+        <parameter name="Password_Output" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="4" index="2" />
+        <parameter name="UserId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="3" />
+        <parameter name="Email_Output" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="4" index="4" />
+        <parameter name="Mobile_Output" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="4" index="5" />
+        <parameter name="Password_Status" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="6" />
+      </prototype>
+    </procedure>
+    <procedure name="UserRegistration" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="Email_Id" sqlType="VARCHAR" length="30" precision="30" nullable="true" jdbcType="12" type="1" index="1" />
+        <parameter name="Mobile_No" sqlType="BIGINT" length="19" precision="19" nullable="true" jdbcType="-5" type="1" index="2" />
+        <parameter name="Password" sqlType="VARCHAR" length="50" precision="50" nullable="true" jdbcType="12" type="1" index="3" />
+        <parameter name="RefferedCode" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="4" />
+        <parameter name="RoleId_Input" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="5" />
+        <parameter name="IsExistingUser" sqlType="TINYINT" length="3" precision="3" nullable="true" jdbcType="-6" type="4" index="6" />
+        <parameter name="UserId_Output" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="7" />
+      </prototype>
+    </procedure>
+    <procedure name="VerifyEmailOTP" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="otp" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Source_Input" sqlType="VARCHAR" length="10" precision="10" nullable="true" jdbcType="12" type="1" index="2" />
+      </prototype>
+    </procedure>
+    <procedure name="VerifyMobileOTP" schema="" catalog="mobyrx" type="1">
+      <prototype return="true">
+        <parameter name="otp" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="1" index="1" />
+        <parameter name="Source_Input" sqlType="VARCHAR" length="20" precision="20" nullable="true" jdbcType="12" type="1" index="2" />
+        <parameter name="UserId_Local" sqlType="INT" length="10" precision="10" nullable="true" jdbcType="4" type="4" index="3" />
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

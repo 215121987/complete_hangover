@@ -1,0 +1,10 @@
+Hi ${name},
+
+Your OTP is ${otp}.
+
+Please enter OTP to proceed firther
+
+Note: This is system generated password, after login please change your password.
+
+Regards,
+Hangover Pvt Ltd
